@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+:root {
+    --rs-bg: #0f172a;
+    --rs-surface: #1e293b;
+    --rs-surface-soft: rgba(30, 41, 59, 0.76);
+    --rs-primary: #3b82f6;
+    --rs-accent: #38bdf8;
+    --rs-success: #22c55e;
+    --rs-warning: #f59e0b;
+    --rs-text: #f8fafc;
+    --rs-text-secondary: #cbd5e1;
+    --rs-border: rgba(148, 163, 184, 0.22);
+    --rs-shadow: 0 18px 45px rgba(2, 6, 23, 0.32);
+}
+
+html,
+body,
+[class*="css"] {
+    font-family: "DM Sans", sans-serif;
+}
+
+.stApp {
+    color: var(--rs-text);
+    background:
+        radial-gradient(circle at 8% 0%, rgba(56, 189, 248, 0.13), transparent 27rem),
+        radial-gradient(circle at 94% 8%, rgba(59, 130, 246, 0.15), transparent 25rem),
+        var(--rs-bg);
+}
+
+[data-testid="stAppViewContainer"],
+[data-testid="stHeader"] {
+    background: transparent;
+}
+
+[data-testid="stMainBlockContainer"] {
+    max-width: 1420px;
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+}
+
+#MainMenu,
+footer,
+[data-testid="stToolbar"] {
+    display: none;
+}
+
+::selection {
+    color: var(--rs-text);
+    background: var(--rs-primary);
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Space Grotesk", sans-serif;
+    color: var(--rs-text);
+    letter-spacing: -0.025em;
+}
+
+h2 {
+    margin-top: 0.35rem;
+    font-size: clamp(1.45rem, 2vw, 1.8rem);
+}
+
+p,
+label,
+[data-testid="stCaptionContainer"] {
+    color: var(--rs-text-secondary);
+}
+
+hr {
+    margin: 2rem 0;
+    border-color: var(--rs-border);
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"] {
+    overflow: hidden;
+    border: 1px solid var(--rs-border);
+    border-radius: 18px;
+    background: var(--rs-surface-soft);
+    box-shadow: var(--rs-shadow);
+    backdrop-filter: blur(16px);
+    transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"]:hover {
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 22px 54px rgba(2, 6, 23, 0.4);
+}
+
+/* Hero card: the only bordered container that contains the page title. */
+div[data-testid="stVerticalBlockBorderWrapper"]:has(h1) {
+    position: relative;
+    border-color: rgba(125, 211, 252, 0.35);
+    background:
+        linear-gradient(115deg, rgba(30, 41, 59, 0.96), rgba(30, 64, 175, 0.64)),
+        radial-gradient(circle at 83% 18%, rgba(56, 189, 248, 0.32), transparent 14rem);
+    box-shadow: 0 24px 65px rgba(15, 23, 42, 0.5);
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"]:has(h1)::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    content: "";
+    background: linear-gradient(90deg, var(--rs-accent), var(--rs-primary));
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"]:has(h1) h1 {
+    margin-bottom: 0.25rem;
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    font-weight: 700;
+    background: linear-gradient(90deg, #f8fafc 8%, #bae6fd 55%, #7dd3fc 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"]:has(h1) code {
+    display: inline-block;
+    margin-right: 0.35rem;
+    padding: 0.27rem 0.55rem;
+    border: 1px solid rgba(125, 211, 252, 0.34);
+    border-radius: 999px;
+    color: #e0f2fe;
+    background: rgba(15, 23, 42, 0.32);
+    font-size: 0.78rem;
+}
+
+/* Native upload workspace controls. */
+[data-testid="stTextArea"] textarea,
+[data-testid="stFileUploader"] section {
+    border: 1px solid rgba(148, 163, 184, 0.28) !important;
+    border-radius: 12px !important;
+    color: var(--rs-text) !important;
+    background: rgba(15, 23, 42, 0.48) !important;
+}
+
+[data-testid="stTextArea"] textarea:focus {
+    border-color: var(--rs-accent) !important;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.16) !important;
+}
+
+[data-testid="stTextArea"] textarea::placeholder {
+    color: #94a3b8;
+}
+
+[data-testid="stFileUploader"] section:hover {
+    border-color: var(--rs-accent) !important;
+    background: rgba(15, 23, 42, 0.66) !important;
+}
+
+[data-testid="stFileUploader"] button,
+[data-testid="stRadio"] label {
+    border-radius: 9px;
+}
+
+[data-testid="stRadio"] [data-checked="true"] {
+    color: var(--rs-accent);
+}
+
+/* Primary action and CSV export controls. */
+[data-testid="stButton"] button,
+[data-testid="stDownloadButton"] button {
+    min-height: 3.2rem;
+    border: 0;
+    border-radius: 12px;
+    color: #eff6ff;
+    background: linear-gradient(100deg, var(--rs-primary), var(--rs-accent));
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: filter 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+[data-testid="stButton"] button:not(:disabled):hover,
+[data-testid="stDownloadButton"] button:not(:disabled):hover {
+    box-shadow: 0 14px 28px rgba(56, 189, 248, 0.28);
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+[data-testid="stButton"] button:disabled,
+[data-testid="stDownloadButton"] button:disabled {
+    color: rgba(248, 250, 252, 0.68);
+    background: linear-gradient(100deg, #334155, #475569);
+    box-shadow: none;
+    opacity: 0.75;
+}
+
+/* Metric cards receive a stronger visual treatment and hover lift. */
+div[data-testid="stVerticalBlockBorderWrapper"]:has([data-testid="stMetric"]) {
+    border-color: rgba(59, 130, 246, 0.3);
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.94), rgba(30, 64, 175, 0.2));
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"]:has([data-testid="stMetric"]):hover {
+    border-color: rgba(56, 189, 248, 0.72);
+    transform: translateY(-4px);
+}
+
+[data-testid="stMetricLabel"] p {
+    color: var(--rs-text-secondary);
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+[data-testid="stMetricValue"] {
+    color: var(--rs-accent);
+    font-family: "Space Grotesk", sans-serif;
+}
+
+/* Dashboard data table. */
+[data-testid="stDataFrame"] {
+    overflow: hidden;
+    border: 1px solid var(--rs-border);
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.34);
+}
+
+[data-testid="stDataFrame"] [role="columnheader"] {
+    color: #e0f2fe !important;
+    background: rgba(30, 64, 175, 0.34) !important;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+}
+
+[data-testid="stDataFrame"] [role="gridcell"] {
+    color: var(--rs-text-secondary) !important;
+    background: rgba(15, 23, 42, 0.16) !important;
+}
+
+[data-testid="stDataFrame"] [role="row"]:hover [role="gridcell"] {
+    background: rgba(56, 189, 248, 0.08) !important;
+}
+
+/* Timeline cards use the compact caption-and-title pattern in app.py. */
+div[data-testid="stVerticalBlockBorderWrapper"]:has([data-testid="stCaptionContainer"]) {
+    min-height: 118px;
+}
+
+[data-testid="stAlert"] {
+    border: 1px solid rgba(56, 189, 248, 0.26);
+    border-radius: 12px;
+    color: var(--rs-text-secondary);
+    background: rgba(14, 116, 144, 0.14);
+}
+
+[data-testid="stCaptionContainer"]:last-child {
+    color: #94a3b8;
+}
+
+button:focus-visible,
+textarea:focus-visible,
+input:focus-visible {
+    outline: 3px solid rgba(56, 189, 248, 0.55) !important;
+    outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+    [data-testid="stMainBlockContainer"] {
+        padding-top: 1.3rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    div[data-testid="stVerticalBlockBorderWrapper"] {
+        border-radius: 14px;
+    }
+
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(h1) h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}

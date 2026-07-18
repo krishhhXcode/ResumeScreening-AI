@@ -95,12 +95,22 @@ def generate_hiring_report(
 
     try:
         response = get_llm_model().generate_content(prompt)
+
+        print("=" * 60)
+        print("FULL GEMINI RESPONSE:")
+        print(response)
+        print("=" * 60)
+
         report = response.text.strip()
+
     except _GeminiModelInitializationError:
         raise
+
     except Exception as error:
+        import traceback
+        traceback.print_exc()
         raise _HiringReportGenerationError(
-            "Gemini could not generate a hiring report from the supplied data."
+            f"{type(error).__name__}: {error}"
         ) from error
 
     if not report:

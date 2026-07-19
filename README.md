@@ -1,8 +1,34 @@
+<p align="center">
+  <img src="assets/banner.png" alt="Resume Screening AI Banner" width="100%">
+</p>
+
 # 📄 Resume Screening AI
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![Streamlit](https://img.shields.io/badge/Streamlit-Deployed-red?logo=streamlit)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Completed-success)
 
 An AI-powered Resume Screening System that automatically ranks resumes based on their similarity to a Job Description using Natural Language Processing (NLP), Machine Learning, and Google's Gemini LLM.
 
 Built using **Python**, **Streamlit**, **Sentence Transformers**, **Scikit-learn**, and **Gemini AI**.
+## 🌐 Live Demo
+
+**Try the application here:**
+
+https://resumescreening-ai-eescnyibfxsck5el999h36.streamlit.app/
+
+---
+## 📑 Table of Contents
+
+- Features
+- Tech Stack
+- Project Structure
+- Installation
+- Usage
+- Screenshots
+- System Architecture
+- Future Improvements
+- Author
 
 ---
 # 🚀 Features
@@ -39,8 +65,8 @@ Built using **Python**, **Streamlit**, **Sentence Transformers**, **Scikit-learn
 - PyMuPDF (fitz)
 ### Environment
 - python-dotenv
-
 ---
+
 # 📂 Project Structure
 
 ```
@@ -63,7 +89,7 @@ ResumeScreening-AI/
 │   └── visualization.py
 │
 ├── uploads/
-|__screenshots/
+├──screenshots/
 ├── sample_data/
 ├── app.py
 ├── requirements.txt
@@ -88,6 +114,33 @@ ResumeScreening-AI/
 ### AI Hiring Report
 
 ![AI Hiring Report](screenshots/report.png)
+---
+## 🏗️ System Architecture
+
+```mermaid
+flowchart LR
+
+A[Upload Job Description PDF]
+B[Upload Resume PDFs]
+C[Extract Text]
+D[Preprocess Text]
+E[Generate Embeddings]
+F[Cosine Similarity]
+G[Rank Candidates]
+H[Analytics Dashboard]
+I[CSV Export]
+J[Gemini Hiring Report]
+
+A --> C
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G
+G --> H
+G --> I
+G --> J
+```
 ---
 # ⚙️ Installation
 Clone the repository

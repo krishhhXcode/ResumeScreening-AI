@@ -96,7 +96,7 @@ def _render_hero_section() -> None:
 
         with logo_column:
             if _is_available_file(LOGO_PATH):
-                st.image(str(LOGO_PATH), width=78)
+                st.image(str(LOGO_PATH), width=800)
             else:
                 st.markdown("## AI")
 
